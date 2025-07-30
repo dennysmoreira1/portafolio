@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio Personal - Dennys Dev
 
-## Getting Started
+Mi portafolio personal desarrollado con Next.js, TypeScript y CSS Modules.
 
-First, run the development server:
+## 🚀 Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Diseño Responsivo** - Se adapta a todos los dispositivos
+- **Efectos Visuales** - Partículas animadas en el fondo
+- **Formulario de Contacto** - Envío de emails con Resend
+- **Sección de Proyectos** - Muestra mis trabajos más recientes
+- **Navegación Suave** - Scroll animado entre secciones
+
+## 🛠️ Tecnologías
+
+- **Next.js 15** - Framework de React
+- **TypeScript** - Tipado estático
+- **CSS Modules** - Estilos modulares
+- **Resend** - Servicio de envío de emails
+- **GitHub Pages** - Hosting estático
+
+## 📁 Estructura del Proyecto
+
+```
+portafolio/
+├── src/
+│   ├── app/           # Páginas y rutas de Next.js
+│   ├── components/    # Componentes reutilizables
+│   └── ...
+├── public/            # Archivos estáticos
+│   ├── projects/      # Imágenes de proyectos
+│   └── ...
+└── .github/           # Configuración de GitHub Actions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Despliegue
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Variables de Entorno
 
-## Learn More
+Para el funcionamiento del formulario de contacto, necesitas configurar:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+RESEND_API_KEY=tu_api_key_de_resend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Pasos para Desplegar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Crear repositorio en GitHub**
+2. **Subir código al repositorio**
+3. **Configurar GitHub Pages** en Settings > Pages
+4. **Agregar variable de entorno** RESEND_API_KEY en Settings > Secrets
 
-## Deploy on Vercel
+## 📧 Contacto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Email**: nickyparra0@gmail.com
+- **WhatsApp**: +593 96 732 8523
+- **LinkedIn**: [Dennys Alejandro](https://www.linkedin.com/in/dennys-alejandro-766a64193/)
+- **GitHub**: [dennysmoreira1](https://github.com/dennysmoreira1)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Licencia
+
+Este proyecto es de uso personal. Todos los derechos reservados.
