@@ -53,10 +53,41 @@ export default function Home() {
     document.body.removeChild(link);
   };
 
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // Dejar que Netlify Forms maneje el envío de forma nativa
-    // El formulario se enviará automáticamente a Netlify
-    console.log('Formulario enviado a Netlify Forms');
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al enviar el mensaje');
+      }
+
+      alert('Mensaje enviado con éxito!');
+      
+      // Reset del formulario
+      if (form) {
+        form.reset();
+      }
+    } catch (error: unknown) {
+      console.error('Error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+      alert(`Error al enviar el mensaje: ${errorMessage}`);
+    }
   };
 
   return (
