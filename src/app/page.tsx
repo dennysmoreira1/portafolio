@@ -78,7 +78,7 @@ export default function Home() {
       }
 
       alert('Mensaje enviado con éxito!');
-      
+
       // Reset del formulario
       if (form) {
         form.reset();
