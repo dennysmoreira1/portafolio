@@ -59,13 +59,14 @@ export default function Home() {
     const formData = new FormData(form);
 
     try {
-      // Usar Formspree como alternativa
-      const response = await fetch("https://formspree.io/f/xpzgwqjq", {
+      // Usar Netlify Forms
+      const response = await fetch("/", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
+          "form-name": "contact",
           name: formData.get("name") as string,
           email: formData.get("email") as string,
           message: formData.get("message") as string,
@@ -80,9 +81,6 @@ export default function Home() {
         console.log('Error response:', errorText);
         throw new Error(`Error HTTP ${response.status}: ${errorText}`);
       }
-
-      const result = await response.json();
-      console.log('Success response:', result);
 
       alert("Mensaje enviado con éxito!");
 
