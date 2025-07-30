@@ -59,7 +59,8 @@ export default function Home() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/contact", {
+      // Usar Formspree como alternativa
+      const response = await fetch("https://formspree.io/f/xpzgwqjq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,8 +73,7 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Error al enviar el mensaje");
+        throw new Error("Error al enviar el mensaje");
       }
 
       alert("Mensaje enviado con éxito!");
@@ -275,7 +275,14 @@ export default function Home() {
       <section id="contacto" className={styles.section}>
         <h2>Trabajos Personalizados</h2>
         <h3>Contactame</h3>
-        <form className={styles.contactForm} onSubmit={handleContactSubmit}>
+        <form 
+          className={styles.contactForm} 
+          onSubmit={handleContactSubmit}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <input
             type="text"
             name="name"
