@@ -6,9 +6,9 @@ import styles from "./page.module.css";
 import ParticlesBg from "../components/ParticlesBg";
 
 const socialIcons = [
-  { src: "./github.svg", alt: "GitHub", href: "https://github.com/dennysmoreira1" },
-  { src: "./linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/dennys-alejandro-766a64193/" },
-  { src: "./cv.svg", alt: "CV", href: "#" },
+  { src: "/github.svg", alt: "GitHub", href: "https://github.com/dennysmoreira1" },
+  { src: "/linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/dennys-alejandro-766a64193/" },
+  { src: "/cv.svg", alt: "CV", href: "#" },
 ];
 
 const skills = [
@@ -46,7 +46,7 @@ export default function Home() {
     e.preventDefault();
     // Crear un enlace temporal para descargar el CV
     const link = document.createElement('a');
-    link.href = './CV.pdf';
+    link.href = '/CV.pdf';
     link.download = 'Dennys_Alejandro_CV.pdf';
     document.body.appendChild(link);
     link.click();
@@ -102,7 +102,7 @@ export default function Home() {
             ¡Transformo tus ideas en realidad!
           </p>
           <a href="https://wa.me/593967328523" className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
-            <Image src="./whatsapp.svg" alt="WhatsApp" width={24} height={24} />
+            <Image src="/whatsapp.svg" alt="WhatsApp" width={24} height={24} />
             Contáctame
           </a>
           <div className={styles.socialIcons}>
@@ -125,7 +125,7 @@ export default function Home() {
           {/* Foto de perfil circular con sombra verde */}
           <div className={styles.profileCircle}>
             <Image
-              src="./profile.jpg"
+              src="/profile.jpg"
               alt="Foto de Dennys Dev"
               width={220}
               height={220}
@@ -143,7 +143,7 @@ export default function Home() {
             {/* Logo circular con DD */}
             <div className={styles.profileCircle}>
               <Image
-                src="./logo.png"
+                src="/logo.png"
                 alt="Logo Dennys Dev"
                 width={180}
                 height={180}
@@ -159,7 +159,7 @@ export default function Home() {
               Soy un desarrollador full stack con experiencia en HTML, CSS, JavaScript y frameworks modernos. Me encanta transformar ideas en productos funcionales, atractivos y responsivos. Siempre busco nuevos retos que me ayuden a seguir creciendo profesionalmente.
             </p>
             <a href="https://wa.me/593967328523" className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
-              <Image src="./whatsapp.svg" alt="WhatsApp" width={24} height={24} />
+              <Image src="/whatsapp.svg" alt="WhatsApp" width={24} height={24} />
               Contactame
             </a>
           </div>
@@ -224,7 +224,7 @@ export default function Home() {
         <div className={styles.projectsGrid}>
           {/* Tarjetas de proyectos de ejemplo */}
           <a href="https://6879a1fdcaf6fc0008485c47--marvelous-crepe-5b3818.netlify.app/login" target="_blank" rel="noopener noreferrer" className={styles.projectCard}>
-            <Image src="./projects/proyecto1.jpg" alt="Panel de Transparencia Municipal" width={180} height={120} />
+            <Image src="/projects/proyecto1.jpg" alt="Panel de Transparencia Municipal" width={180} height={120} />
             <h4>Panel de Transparencia Municipal</h4>
             <div className={styles.projectDescription}>
               <p>
@@ -233,7 +233,7 @@ export default function Home() {
             </div>
           </a>
           <a href="https://sistema-gestion-ventas.netlify.app/" target="_blank" rel="noopener noreferrer" className={styles.projectCard}>
-            <Image src="./projects/proyecto2.jpg" alt="Sistema de Gestión de Ventas" width={180} height={120} />
+            <Image src="/projects/proyecto2.jpg" alt="Sistema de Gestión de Ventas" width={180} height={120} />
             <h4>Sistema de Gestión de Ventas</h4>
             <div className={styles.projectDescription}>
               <p>
@@ -242,7 +242,7 @@ export default function Home() {
             </div>
           </a>
           <a href="https://portal-inmobiliaria.netlify.app/" target="_blank" rel="noopener noreferrer" className={styles.projectCard}>
-            <Image src="./projects/proyecto3.jpg" alt="Portal Inmobiliario" width={180} height={120} />
+            <Image src="/projects/proyecto3.jpg" alt="Portal Inmobiliario" width={180} height={120} />
             <h4>Portal Inmobiliario</h4>
             <div className={styles.projectDescription}>
               <p>
@@ -251,7 +251,7 @@ export default function Home() {
             </div>
           </a>
           <a href="https://687e360661919f00c9b050e7--tienda-automatica.netlify.app/" target="_blank" rel="noopener noreferrer" className={styles.projectCard}>
-            <Image src="./projects/proyecto4.jpg" alt="Tienda Automática" width={180} height={120} />
+            <Image src="/projects/proyecto4.jpg" alt="Tienda Automática" width={180} height={120} />
             <h4>Tienda Automática</h4>
             <div className={styles.projectDescription}>
               <p>
@@ -260,7 +260,7 @@ export default function Home() {
             </div>
           </a>
           <a href="https://google-docs-lite.netlify.app/" target="_blank" rel="noopener noreferrer" className={styles.projectCard}>
-            <Image src="./projects/proyecto5.jpg" alt="Google Docs Lite" width={180} height={120} />
+            <Image src="/projects/proyecto5.jpg" alt="Google Docs Lite" width={180} height={120} />
             <h4>Google Docs Lite</h4>
             <div className={styles.projectDescription}>
               <p>
