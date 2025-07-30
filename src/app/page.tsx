@@ -53,46 +53,10 @@ export default function Home() {
     document.body.removeChild(link);
   };
 
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      // Usar Netlify Forms
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          "form-name": "contact",
-          name: formData.get("name") as string,
-          email: formData.get("email") as string,
-          message: formData.get("message") as string,
-        }),
-      });
-
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.log('Error response:', errorText);
-        throw new Error(`Error HTTP ${response.status}: ${errorText}`);
-      }
-
-      alert("Mensaje enviado con éxito!");
-
-      // Reset del formulario de forma segura
-      if (form) {
-        form.reset();
-      }
-    } catch (error: unknown) {
-      console.error('Error completo:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
-      alert(`Error al enviar el mensaje: ${errorMessage}`);
-    }
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Dejar que Netlify Forms maneje el envío de forma nativa
+    // El formulario se enviará automáticamente a Netlify
+    console.log('Formulario enviado a Netlify Forms');
   };
 
   return (
