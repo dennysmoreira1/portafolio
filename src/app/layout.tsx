@@ -20,9 +20,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Dennys Alejandro" }],
   creator: "Dennys Alejandro",
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
+    ],
     shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: "Dennys Dev - Portafolio Personal",

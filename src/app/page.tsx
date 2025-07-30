@@ -72,9 +72,17 @@ export default function Home() {
         }),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+
       if (!response.ok) {
-        throw new Error("Error al enviar el mensaje");
+        const errorText = await response.text();
+        console.log('Error response:', errorText);
+        throw new Error(`Error HTTP ${response.status}: ${errorText}`);
       }
+
+      const result = await response.json();
+      console.log('Success response:', result);
 
       alert("Mensaje enviado con éxito!");
 
@@ -83,6 +91,7 @@ export default function Home() {
         form.reset();
       }
     } catch (error: unknown) {
+      console.error('Error completo:', error);
       const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
       alert(`Error al enviar el mensaje: ${errorMessage}`);
     }
