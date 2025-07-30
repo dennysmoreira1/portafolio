@@ -63,12 +63,12 @@ export default function Home() {
       const response = await fetch("https://formspree.io/f/xpzgwqjq", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          message: formData.get("message"),
+        body: new URLSearchParams({
+          name: formData.get("name") as string,
+          email: formData.get("email") as string,
+          message: formData.get("message") as string,
         }),
       });
 
@@ -275,8 +275,8 @@ export default function Home() {
       <section id="contacto" className={styles.section}>
         <h2>Trabajos Personalizados</h2>
         <h3>Contactame</h3>
-        <form 
-          className={styles.contactForm} 
+        <form
+          className={styles.contactForm}
           onSubmit={handleContactSubmit}
           name="contact"
           method="POST"
