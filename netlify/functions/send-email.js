@@ -22,18 +22,18 @@ exports.handler = async function(event, context) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
-      to: ['tu-email@ejemplo.com'], // Cambia por tu email
-      subject: `Nuevo mensaje de ${name} desde tu portafolio`,
-      html: `
-        <h2>Nuevo mensaje desde tu portafolio</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
-      `
-    });
+         const { data, error } = await resend.emails.send({
+       from: 'Portfolio <onboarding@resend.dev>',
+       to: ['nickyparra0@gmail.com'],
+       subject: `Nuevo mensaje de ${name} desde tu portafolio`,
+       html: `
+         <h2>Nuevo mensaje desde tu portafolio</h2>
+         <p><strong>Nombre:</strong> ${name}</p>
+         <p><strong>Email:</strong> ${email}</p>
+         <p><strong>Mensaje:</strong></p>
+         <p>${message}</p>
+       `
+     });
 
     if (error) {
       console.error('Error de Resend:', error);
