@@ -72,8 +72,9 @@ export default function Home() {
       if (form) {
         form.reset();
       }
-    } catch (error: any) {
-      alert(`Error al enviar el mensaje: ${error.message}`);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+      alert(`Error al enviar el mensaje: ${errorMessage}`);
     }
   };
 
@@ -83,7 +84,7 @@ export default function Home() {
       {/* Sección de presentación principal */}
       <section id="inicio" className={styles.hero}>
         <div className={styles.heroText}>
-          <h3>Hello, I'm</h3>
+          <h3>Hello, I&apos;m</h3>
           <h1>Dennys <span>Dev</span></h1>
           <h2>Web Developer</h2>
           <p>
