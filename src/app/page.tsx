@@ -8,7 +8,6 @@ import ParticlesBg from "../components/ParticlesBg";
 const socialIcons = [
   { src: "/github.svg", alt: "GitHub", href: "https://github.com/dennysmoreira1" },
   { src: "/linkedin.svg", alt: "LinkedIn", href: "https://www.linkedin.com/in/dennys-alejandro-766a64193/" },
-  { src: "/mail.svg", alt: "Email", href: "#" },
   { src: "/cv.svg", alt: "CV", href: "#" },
 ];
 
@@ -41,6 +40,17 @@ export default function Home() {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleCVClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Crear un enlace temporal para descargar el CV
+    const link = document.createElement('a');
+    link.href = '/CV.pdf';
+    link.download = 'Dennys_Alejandro_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -97,7 +107,13 @@ export default function Home() {
           </a>
           <div className={styles.socialIcons}>
             {socialIcons.map((icon, i) => (
-              <a key={i} href={icon.href} target="_blank" rel="noopener noreferrer">
+              <a
+                key={i}
+                href={icon.alt === "CV" ? "#" : icon.href}
+                target={icon.alt === "CV" ? undefined : "_blank"}
+                rel={icon.alt === "CV" ? undefined : "noopener noreferrer"}
+                onClick={icon.alt === "CV" ? handleCVClick : undefined}
+              >
                 <div className={styles.socialIconDiamond}>
                   <Image src={icon.src} alt={icon.alt} width={28} height={28} />
                 </div>
@@ -294,6 +310,8 @@ export default function Home() {
           <path d="M7 14l5-5 5 5" stroke="#00ffae" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
+
+
 
       {/* Footer */}
       <footer className={styles.footer}>

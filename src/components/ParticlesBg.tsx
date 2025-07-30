@@ -7,58 +7,57 @@ const ParticlesBg = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
+        console.log('ParticlesBg component mounted');
         const canvas = canvasRef.current;
-        if (!canvas) return;
+        if (!canvas) {
+            console.log('Canvas not found');
+            return;
+        }
 
         const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+        if (!ctx) {
+            console.log('Canvas context not found');
+            return;
+        }
+
+        console.log('Canvas and context found, setting up particles');
 
         // Configurar canvas
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
         };
 
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Partículas
+        // Crear partículas simples
         const particles: Array<{
             x: number;
             y: number;
-            vx: number;
-            vy: number;
             size: number;
         }> = [];
 
-        // Crear partículas
         for (let i = 0; i < 50; i++) {
             particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 1,
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: Math.random() * 4 + 2,
             });
         }
 
-        // Función de animación
+        console.log('Created', particles.length, 'particles');
+
+        // Función de animación simple
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach((particle) => {
-                // Actualizar posición
-                particle.x += particle.vx;
-                particle.y += particle.vy;
-
-                // Rebotar en los bordes
-                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
                 // Dibujar partícula
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 255, 174, 0.3)';
+                ctx.fillStyle = 'rgba(0, 255, 174, 0.8)';
                 ctx.fill();
             });
 
@@ -66,6 +65,7 @@ const ParticlesBg = () => {
         };
 
         animate();
+        console.log('Animation started');
 
         return () => {
             window.removeEventListener('resize', resizeCanvas);
