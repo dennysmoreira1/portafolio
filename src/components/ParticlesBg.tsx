@@ -30,7 +30,7 @@ const ParticlesBg = () => {
             vy: number;
             size: number;
         }> = [];
-        
+
         for (let i = 0; i < 80; i++) {
             particles.push({
                 x: Math.random() * window.innerWidth,
